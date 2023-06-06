@@ -1,11 +1,21 @@
 import React from 'react';
 
-const Button = ({ label, onClick }) => {
+function buttonPedidos() {
+  const [total, setTotal] = React.useState(0);
+
   return (
-    <button type="submit" onClick={ onClick }>
-      { label } 
-    </button>
+    <button onClick = {() => setTotal(total +1)}>Novo Pedido {total}</button>
+  )
+}
+
+function codeBurger() {
+  return (
+    <div>
+      <h1>codeBurger</h1>
+      <img src = "burger.png" alt = "Imagem do burger"></img>
+    </div>
   );
 };
 
-export default Button;
+
+export default (buttonPedidos, codeBurger);
