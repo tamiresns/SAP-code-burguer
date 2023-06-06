@@ -8,22 +8,17 @@ import Logo from '../../components/Logo';
         <div className='fazerPedido-container'>
           <div className='grid-container'>
           <img src={Logo} alt="Logo code burger"></img>
-            <Button 
+          <Button 
                 label="Novo pedido" 
                 onClick='' 
-            />
-       
+        />
             <Button 
             label="Ver pedido" 
             onClick='' 
         />
-     
         </div>
         </div>
-
       );
 }
+
 export default Garcom;
-
-
-
