@@ -1,14 +1,14 @@
-// import React from 'react';
+// import React, {useState} from 'react';
 
-// function buttonPedidos() {
-//   const [total, setTotal] = React.useState(0);
+// function ButtonPedidos() {
+//   const [total, setTotal] = useState(0);
 
 //   return (
 //     <button onClick = {() => setTotal(total +1)}>Novo Pedido {total}</button>
 //   )
 // }
 
-// function codeBurger() {
+// function CodeBurger({onClick, label}) {
 //   return (
 //     <><div>
 //     <h1>codeBurger</h1>
@@ -20,7 +20,7 @@
 // };
 
 
-// export default (buttonPedidos, codeBurger);
+// export default (ButtonPedidos, CodeBurger);
 
 import React from 'react';
 
