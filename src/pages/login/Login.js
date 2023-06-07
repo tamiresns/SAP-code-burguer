@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import { Garcom } from './Pedidotest';
+import Garcom from './Pedidotest';
 import './Login.css';
 
 
