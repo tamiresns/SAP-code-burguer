@@ -10,6 +10,7 @@ export const Login = () => {
 
     const [inputEmail, setInputEmail] = useState('');
     const [inputSenha, setInputSenha] = useState('');
+    const [error, setError] = useState('');
 
     //preencher os parametros de email/senha
     function preencherEmail(event){
@@ -41,13 +42,20 @@ export const Login = () => {
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log('Resposta da API:', data);
             // Faça algo com a resposta da API
+            // Para salvar o token:
+            if(data && data.accessToken){
+              console.log(data.accessToken)
+              //se com sucesso: guardar o token
+              localStorage.setItem('accessToken', data.accessToken); 
+            }
+            else{
+              setError(data)
+            }
           })
           .catch((error) => {
-            console.error('Erro na requisição:', error);
+            setError(error)
           });
-        //se com sucesso: guardar o token
         // se com falha: retornar erro
 
     }
@@ -73,6 +81,10 @@ export const Login = () => {
                 required
                 onChange={preencherSenha}
               />
+
+              <div>
+                {error && <p>{error}</p>}
+              </div>
 
               <ButtonMain label="Login"/>
 
