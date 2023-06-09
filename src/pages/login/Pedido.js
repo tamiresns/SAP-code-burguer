@@ -12,11 +12,11 @@ import './Pedido.css';
           <img src={Logo} alt="Logo code burger" className="logo-burger"/>
           <div className="button-pedidos">
             <button>
-              <Link to="/Cadastrar-pedido" className="novo-pedido">Novo Pedido</Link>
+              <Link to="/Cadastrar-pedido" className="btn-pedido">Novo Pedido</Link>
               <img src={IconeMais} alt="Icone Mais" className="icone-mais"/>
             </button>
             <button>
-              <Link to="/Ver-pedido" className="ver-pedido">Ver Pedido</Link>
+              <Link to="/Ver-pedido" className="btn-pedido">Ver Pedido</Link>
               <img src={IconeOlho} alt="Icone Olho" className="icone-olho"/>
             </button>
           </div>
