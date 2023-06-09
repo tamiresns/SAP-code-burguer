@@ -21,23 +21,34 @@
     width: 250px;
     height: 250px;
 }
-Button {
-  background-color: white;
-  color: brown;
-  font-family: verdana;
-  font-size: 16px;
-  width: 120px;
-  height: 120px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
+button {
+    background-color: white;
+    width: 120px;
+    height: 120px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
 }
 .button-pedidos {
     display: flex;
     flex-direction: row;
     gap: 50px;
 }
-/* .icone-mais {
-    display: flex;
-    flex-direction: column;
-} */
+.novo-pedido {
+    text-decoration: none;
+    color: brown;
+    font-family: verdana;
+    font-size: 20px;
+}
+.ver-pedido {
+    text-decoration: none;
+    color: brown;
+    font-family: verdana;
+    font-size: 20px;
+}
+.icone-mais {
+    padding: 15px;
+}
+.icone-olho {
+    padding: 15px;
+}

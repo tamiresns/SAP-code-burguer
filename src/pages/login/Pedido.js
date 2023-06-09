@@ -1,32 +1,24 @@
 import React from 'react';
-import Button from '../../components/Button';
 import Logo from '../../img/burger.png'
-// import IconeMais from '../../img/icon-mais.png'
 import { Link } from 'react-router-dom';
+import IconeMais from '../../img/icon-mais.png';
+import IconeOlho from '../../img/icon-olho.png';
 import './Pedido.css';
-
 
  const Pedidos = () => {
     return (
         <div className="pedidos-container">
           <h1 className="title">codeBurger</h1>
-          <img src={Logo} alt="Logo code burger" className="logo-burger"></img>
+          <img src={Logo} alt="Logo code burger" className="logo-burger"/>
           <div className="button-pedidos">
-            <Link to="/Cadastrar-pedido">
-            <div className="botao-novo-pedido">
-            {/* <img src={IconeMais} alt="Icone Mais" className="icone-mais"></img> */}
-            <Button 
-              className="novo-pedido"
-              label="Novo Pedido" 
-            />
-            </div>
-            </Link>
-            <div className="botao-ver-pedido">
-            <Button 
-              label="Ver Pedido"
-              onClick='' 
-            />
-            </div>
+            <button>
+              <Link to="/Cadastrar-pedido" className="novo-pedido">Novo Pedido</Link>
+              <img src={IconeMais} alt="Icone Mais" className="icone-mais"/>
+            </button>
+            <button>
+              <Link to="/Ver-pedido" className="ver-pedido">Ver Pedido</Link>
+              <img src={IconeOlho} alt="Icone Olho" className="icone-olho"/>
+            </button>
           </div>
         </div>
       );
