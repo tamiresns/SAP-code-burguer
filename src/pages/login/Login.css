@@ -1,0 +1,36 @@
+*{
+    background-color: #544D4D;
+    color: white;
+}
+
+div > h1 > .title{
+    color: black;
+}
+
+.grid-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}  
+
+Input{
+    min-width: 300px;
+    font-size: 16px;
+    margin: 10px 0px;
+    height: 35px;
+    border: solid white 1px;
+    border-radius: 5px;
+}
+
+Input::placeholder {
+    font-style: italic;
+  }
+
+.button-main{
+    min-width: 304px;
+    height: 43px;
+    border-radius: 5px;
+    margin: 20px 0px;
+
+}
