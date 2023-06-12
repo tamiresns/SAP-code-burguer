@@ -29,23 +29,23 @@ button {
     border-radius: 20px;
     cursor: pointer;
 }
+button img{
+    background-color: white;
+}
+
 .button-pedidos {
     display: flex;
     flex-direction: row;
     gap: 50px;
 }
-.novo-pedido {
+.btn-pedido {
+    background-color: white;
     text-decoration: none;
     color: brown;
     font-family: verdana;
     font-size: 20px;
 }
-.ver-pedido {
-    text-decoration: none;
-    color: brown;
-    font-family: verdana;
-    font-size: 20px;
-}
+
 .icone-mais {
     padding: 15px;
 }
