@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Input from '../../components/Input';
 import ButtonMain from '../../components/ButtonMain';
 import ImgLogo from '../../components/ImgLogo';
+import { useNavigate } from 'react-router-dom';
 
 import './Login.css';
 
@@ -11,6 +12,7 @@ export const Login = () => {
     const [inputEmail, setInputEmail] = useState('');
     const [inputSenha, setInputSenha] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     //preencher os parametros de email/senha
     function preencherEmail(event){
@@ -47,7 +49,8 @@ export const Login = () => {
             if(data && data.accessToken){
               console.log(data.accessToken)
               //se com sucesso: guardar o token
-              localStorage.setItem('accessToken', data.accessToken); 
+              localStorage.setItem('accessToken', data.accessToken);
+              navigate('Pedidos');
             }
             else{
               setError(data)
