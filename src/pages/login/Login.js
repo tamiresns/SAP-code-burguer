@@ -6,8 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import './Login.css';
 
-
-export const Login = () => {
+const Login = () => {
 
     const [inputEmail, setInputEmail] = useState('');
     const [inputSenha, setInputSenha] = useState('');
@@ -96,3 +95,5 @@ export const Login = () => {
         </div>
       );
 }
+
+export default Login;

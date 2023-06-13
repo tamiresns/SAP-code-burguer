@@ -4,7 +4,7 @@
 }
 
 div > h1 > .title{
-    color: black;
+    color: white;
 }
 
 .grid-container{
@@ -31,9 +31,10 @@ Input::placeholder {
   }
 
 .button-main{
+    color: black;
+    font-size: 20px;
     min-width: 304px;
     height: 43px;
     border-radius: 5px;
     margin: 20px 0px;
-
 }
