@@ -1,0 +1,54 @@
+.pedidos-container {
+    background-color: #544D4D;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.title {
+    color: white;
+    font-family: verdana;
+    font-size: 40px;
+    text-align: center;
+    margin-top: -30px;
+}
+.logo-burger {
+    margin-bottom: 50px;
+    width: 250px;
+    height: 250px;
+}
+button {
+    background-color: white;
+    width: 120px;
+    height: 120px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+button img{
+    background-color: white;
+}
+
+.button-pedidos {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+.btn-pedido {
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    font-family: verdana;
+    font-size: 18px;
+}
+
+.icone-mais {
+    padding: 15px;
+}
+.icone-olho {
+    padding: 15px;
+}

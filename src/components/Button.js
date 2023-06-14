@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Button = ({ label, onClick }) => {
+const Button = ({ children, onClick }) => {
   return (
-    <button type="submit" onClick={onClick}>
-      { label } 
+    <button type="submit" onClick = {onClick}>
+      {children} 
     </button>
   );
-};
+}; 
 
 export default Button;
