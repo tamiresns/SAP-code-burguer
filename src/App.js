@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Login } from './pages/login/Login';
+import Login from './pages/login/Login';
 import Pedidos from './pages/login/Pedido';
 // import CadastrarPedido from './pages/Cadastrar-pedido';
 // import VerPedido from './pages/Ver-pedido';
