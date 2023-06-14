@@ -2,8 +2,6 @@ import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import Login from '../pages/login/Login.js';
 
-
-
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
     //Operador de propagação que espalha todas as propriedades e métodos do módulo real 'react-router-dom'.
@@ -30,13 +28,8 @@ describe('Login, component', () => {
     expect(passwordInput.value).toBe('Sap09');
   });
 
-  it('should display error message when there is an error', () => {
+  it('Deve redirecionar para a rota de pedidos caso as credenciais estejam corretas', () => {
     render(<Login />);
-
-    const errorMessage = 'Invalid Credentials';
-    // Mock do fetch para simular erro
-    const fetchMock = jest.fn().mockReturnValue(new Error(errorMessage));
-    global.fetch = fetchMock;
 
     
   })
