@@ -38,6 +38,7 @@ button img{
     flex-direction: row;
     gap: 50px;
 }
+
 .btn-pedido {
     background-color: white;
     text-decoration: none;
@@ -49,6 +50,7 @@ button img{
 .icone-mais {
     padding: 15px;
 }
+
 .icone-olho {
     padding: 15px;
 }

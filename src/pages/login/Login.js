@@ -18,10 +18,13 @@ const Login = () => {
         //ação necessaria pois o login será feito por chamada de API
         event.preventDefault();
 
+        const email = event.target[0].value;
+        const password = event.target[1].value;
+
         //pegar os parametros de email/senha
         const bodyJson={
-          "email": event.target[0].value,
-          "password": event.target[1].value,
+          "email": email,
+          "password": password,
         }
         //chmar a api
         return fetch('https://code-burguer-api.vercel.app/login', {
@@ -63,12 +66,14 @@ const Login = () => {
                 type='email'
                 placeholder='Seu e-mail'
                 required
+                name='email'
               />
       
               <Input
                 type='password'
                 placeholder='Sua senha'
                 required
+                name='password'
               />
 
               <div>

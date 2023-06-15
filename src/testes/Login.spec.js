@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 import Login from '../pages/login/Login.js';
 
 
@@ -34,21 +34,21 @@ describe('Login, component', () => {
     expect(passwordInput.value).toBe('Sap09');
   });
   
-  it('renders login component', () => {
-    // Simula a resposta da API
-    const mockResponse = {
-      accessToken: 'token_de_acesso',
-    };
+  it('Deve chamar a API corretamente e verificar se o Token foi salvo no LocalStorage', async () => {
+    const setItemMock = jest.fn();
+    global.localStorage.setItem = setItemMock;
+   
     fetch.mockImplementation(() =>
       Promise.resolve({
-        json: () => Promise.resolve(mockResponse),
+        json: () => Promise.resolve({
+          accessToken: 'token_de_acesso',
+        }),
       })
     );
-  
     // Renderiza o componente Login
     render(<Login />);
   
-    // Interage com o formulário
+    // Preenche os campos de email e senha
     fireEvent.change(screen.getByPlaceholderText('Seu e-mail'), {
       target: { value: 'test@example.com' },
     });
@@ -56,22 +56,26 @@ describe('Login, component', () => {
       target: { value: 'password123' },
     });
     fireEvent.click(screen.getByRole('button', { name: /Login/i }));
+
+    await waitFor(() => {
+      expect(setItemMock).toHaveBeenCalledWith('accessToken','token_de_acesso');
+      // Verifica se o token foi salvo no localStorage
+  })
   
-    // Verifica se a chamada à API foi feita corretamente
-    expect(fetch).toHaveBeenCalledWith(
-      'https://code-burguer-api.vercel.app/login',
-      expect.objectContaining({
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: 'test@example.com',
-          password: 'password123',
-        }),
-      })
-    );
-  
-    // Verifica se o token foi salvo no localStorage
-    expect(localStorage.getItem('accessToken')).toBe('token_de_acesso');
+    // Aguarda a chamada à API
+      expect(fetch).toHaveBeenCalledWith(
+        'https://code-burguer-api.vercel.app/login',
+        expect.objectContaining({
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: 'test@example.com',
+            password: 'password123',
+          }),
+        })
+      )
+    
+   
   });
   
  
