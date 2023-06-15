@@ -23,7 +23,6 @@ const Login = () => {
           "email": event.target[0].value,
           "password": event.target[1].value,
         }
-        console.log(bodyJson);
         //chmar a api
         return fetch('https://code-burguer-api.vercel.app/login', {
           method: 'POST',
