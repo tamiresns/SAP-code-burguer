@@ -8,31 +8,22 @@ import './Login.css';
 
 const Login = () => {
 
-    const [inputEmail, setInputEmail] = useState('');
-    const [inputSenha, setInputSenha] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    //preencher os parametros de email/senha
-    function preencherEmail(event){
-      setInputEmail(event.target.value); // Atualiza o estado com o valor do input
-    }
-
-    function preencherSenha(event){
-      setInputSenha(event.target.value); // Atualiza o estado com o valor do input
-    }
-
     //função chamada ao submter o formulário
     const formLoginSubmit = (event) => {
+      console.log(event);
         //interrompe  resto da ação "submit" que iria recarregar a página
         //ação necessaria pois o login será feito por chamada de API
         event.preventDefault();
 
         //pegar os parametros de email/senha
         const bodyJson={
-          "email": inputEmail,
-          "password": inputSenha
+          "email": event.target[0].value,
+          "password": event.target[1].value,
         }
+        console.log(bodyJson);
         //chmar a api
         return fetch('https://code-burguer-api.vercel.app/login', {
           method: 'POST',
@@ -59,7 +50,6 @@ const Login = () => {
             setError(error)
           });
         // se com falha: retornar erro
-
     }
 
     return (
@@ -74,14 +64,12 @@ const Login = () => {
                 type='email'
                 placeholder='Seu e-mail'
                 required
-                onChange={preencherEmail}
               />
       
               <Input
                 type='password'
                 placeholder='Sua senha'
                 required
-                onChange={preencherSenha}
               />
 
               <div>
