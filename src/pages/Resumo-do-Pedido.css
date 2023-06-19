@@ -1,0 +1,28 @@
+.title {
+    color: white;
+    font-family: verdana;
+    font-size: 40px;
+    text-align: center;
+    margin-top: -30px;
+}
+
+.logo-burger {
+    margin-bottom: 50px;
+    width: 250px;
+    height: 250px;
+}
+
+  .box {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border: 1px solid black;
+  }
+  
+  .btn-voltar {
+
+  }
+  .btn-enviar{
+    
+  }
+  

@@ -35,4 +35,3 @@ describe('Login, component', () => {
   })
 
 })
-
