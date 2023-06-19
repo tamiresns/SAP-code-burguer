@@ -3,8 +3,8 @@ import Login from './pages/login/Login.js';
 import Pedidos from './pages/login/Pedido';
 // import CadastrarPedido from './pages/Cadastrar-pedido';
 // import VerPedido from './pages/Ver-pedido';
+Import Resumo from './pages/login/Resumo-do-Pedido';
 import './App.css';
-
 
 const App = () => {
   return (
