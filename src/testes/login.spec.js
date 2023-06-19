@@ -55,6 +55,7 @@ describe('Login, component', () => {
     })
       //verifica se a função login foi chamada corretamente
       expect(login).toHaveBeenCalledWith('test@example.com', 'password123');
+      //verifica se navegou para a página Pedidos
       expect(mockNavigate).toHaveBeenCalledWith('Pedidos');
   });
    
