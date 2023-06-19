@@ -2,13 +2,13 @@ import React from 'react';
 import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 import Login from '../pages/login/Login.js';
 
-
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
     //Operador de propagação que espalha todas as propriedades e métodos do módulo real 'react-router-dom'.
     // o Jest carrega o módulo real especificado em vez do módulo mockado. 
     useNavigate: jest.fn(),
 }));
+
 global.fetch = jest.fn();
 
 describe('Login, component', () => {
@@ -35,9 +35,6 @@ describe('Login, component', () => {
   });
   
   it('Deve chamar a API corretamente e verificar se o Token foi salvo no LocalStorage', async () => {
-    const setItemMock = jest.fn();
-    global.localStorage.setItem = setItemMock;
-   
     fetch.mockImplementation(() =>
       Promise.resolve({
         json: () => Promise.resolve({
@@ -45,10 +42,9 @@ describe('Login, component', () => {
         }),
       })
     );
-    // Renderiza o componente Login
+    
     render(<Login />);
   
-    // Preenche os campos de email e senha
     fireEvent.change(screen.getByPlaceholderText('Seu e-mail'), {
       target: { value: 'test@example.com' },
     });
@@ -58,11 +54,11 @@ describe('Login, component', () => {
     fireEvent.click(screen.getByRole('button', { name: /Login/i }));
 
     await waitFor(() => {
-      expect(setItemMock).toHaveBeenCalledWith('accessToken','token_de_acesso');
-      // Verifica se o token foi salvo no localStorage
-  })
-  
-    // Aguarda a chamada à API
+      const storedAccessToken = localStorage.getItem('accessToken');
+      expect(storedAccessToken).toBe('token_de_acesso');
+      //verifica diretamente o valor armazenado no localStorage
+    })
+      //verifica se a API foi chamada corretamente
       expect(fetch).toHaveBeenCalledWith(
         'https://code-burguer-api.vercel.app/login',
         expect.objectContaining({
@@ -74,8 +70,6 @@ describe('Login, component', () => {
           }),
         })
       )
-    
-   
   });
   
  

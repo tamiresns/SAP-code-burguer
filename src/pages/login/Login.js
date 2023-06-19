@@ -13,13 +13,14 @@ const Login = () => {
 
     //função chamada ao submter o formulário
     const formLoginSubmit = (event) => {
-      console.log(event);
+      
         //interrompe  resto da ação "submit" que iria recarregar a página
         //ação necessaria pois o login será feito por chamada de API
         event.preventDefault();
 
-        const email = event.target[0].value;
-        const password = event.target[1].value;
+        const email = event.target.elements[0].value;
+        const password = event.target.elements[1].value;
+        
 
         //pegar os parametros de email/senha
         const bodyJson={
@@ -39,17 +40,14 @@ const Login = () => {
             // Faça algo com a resposta da API
             // Para salvar o token:
             if(data && data.accessToken){
-              console.log(data.accessToken)
               //se com sucesso: guardar o token
               localStorage.setItem('accessToken', data.accessToken);
               navigate('Pedidos');
             }
-            else{
-              setError(data)
-            }
+            
           })
           .catch((error) => {
-            setError(error)
+            setError(error.message)
           });
         // se com falha: retornar erro
     }
