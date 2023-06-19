@@ -33,11 +33,14 @@ const Login = () => {
               setItem('accessToken', data.accessToken);
               navigate('Pedidos');
             }
+            else{
+              setError(data)
+            }
           })
           .catch((error) => {
             setError(error.message)
           });
-        //se com falha: retornar erro
+        //se URL com falha: retornar erro
     }
 
     return (

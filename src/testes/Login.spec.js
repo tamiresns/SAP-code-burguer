@@ -56,11 +56,30 @@ describe('Login, component', () => {
       expect(mockNavigate).toHaveBeenCalledWith('Pedidos');
   });
    
-  // it('Deve mostrar a mensagem de erro quando se falhar ao acessar o token', () => {
-  //   const 
-  //   login.mockRejectValue(error.message);
+  it('Deve mostrar a mensagem de erro se falhar ao acessar o token', () => {
+    const mockData = "Cannot find user"
+
+    const mockNavigate = jest.fn();
+    useNavigate.mockReturnValue(mockNavigate);
+    login.mockResolvedValue({accessToken: 'token_de_acesso'});
+    
+    render(<Login />);
+  
+    fireEvent.change(screen.getByPlaceholderText('Seu e-mail'), {
+      target: { value: 'test@example.com' },
+    });
+    fireEvent.change(screen.getByPlaceholderText('Sua senha'), {
+      target: { value: 'password123' },
+    });
+    fireEvent.click(screen.getByRole('button', { name: /Login/i }));
+
+   
+      //verifica se a função login foi chamada corretamente
+      expect(login).toHaveBeenCalledWith('test@example.com', 'password123');
+      login.mockRejectedValue(mockData);
 
 
-  // })
+
+  })
 })
 
