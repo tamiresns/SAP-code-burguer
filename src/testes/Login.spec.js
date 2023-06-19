@@ -1,15 +1,13 @@
 import React from 'react';
 import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 import Login from '../pages/login/Login.js';
+import { setItem } from '../storage/local.js';
+import { login } from '../api/auth.js';
+import { useNavigate } from 'react-router-dom';
 
-jest.mock('react-router-dom', () => ({
-    ...jest.requireActual('react-router-dom'),
-    //Operador de propagação que espalha todas as propriedades e métodos do módulo real 'react-router-dom'.
-    // o Jest carrega o módulo real especificado em vez do módulo mockado. 
-    useNavigate: jest.fn(),
-}));
-
-global.fetch = jest.fn();
+jest.mock('react-router-dom');
+jest.mock('../storage/local.js');
+jest.mock('../api/auth.js');
 
 describe('Login, component', () => {
   beforeEach(() => {
@@ -35,13 +33,9 @@ describe('Login, component', () => {
   });
   
   it('Deve chamar a API corretamente e verificar se o Token foi salvo no LocalStorage', async () => {
-    fetch.mockImplementation(() =>
-      Promise.resolve({
-        json: () => Promise.resolve({
-          accessToken: 'token_de_acesso',
-        }),
-      })
-    );
+    const mockNavigate = jest.fn();
+    useNavigate.mockReturnValue(mockNavigate);
+    login.mockResolvedValue({accessToken: 'token_de_acesso'});
     
     render(<Login />);
   
@@ -54,24 +48,19 @@ describe('Login, component', () => {
     fireEvent.click(screen.getByRole('button', { name: /Login/i }));
 
     await waitFor(() => {
-      const storedAccessToken = localStorage.getItem('accessToken');
-      expect(storedAccessToken).toBe('token_de_acesso');
-      //verifica diretamente o valor armazenado no localStorage
+      expect(setItem).toHaveBeenCalledWith('accessToken','token_de_acesso');
+      // Verifica se o token foi salvo no localStorage
     })
-      //verifica se a API foi chamada corretamente
-      expect(fetch).toHaveBeenCalledWith(
-        'https://code-burguer-api.vercel.app/login',
-        expect.objectContaining({
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            email: 'test@example.com',
-            password: 'password123',
-          }),
-        })
-      )
+      //verifica se a função login foi chamada corretamente
+      expect(login).toHaveBeenCalledWith('test@example.com', 'password123');
+      expect(mockNavigate).toHaveBeenCalledWith('Pedidos');
   });
-  
- 
+   
+  // it('Deve mostrar a mensagem de erro quando se falhar ao acessar o token', () => {
+  //   const 
+  //   login.mockRejectValue(error.message);
+
+
+  // })
 })
 

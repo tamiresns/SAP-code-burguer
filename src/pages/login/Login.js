@@ -3,7 +3,8 @@ import Input from '../../components/Input';
 import ButtonMain from '../../components/ButtonMain';
 import ImgLogo from '../../components/ImgLogo';
 import { useNavigate } from 'react-router-dom';
-
+import { setItem } from '../../storage/local.js';
+import { login } from '../../api/auth.js';
 import './Login.css';
 
 const Login = () => {
@@ -20,36 +21,23 @@ const Login = () => {
 
         const email = event.target.elements[0].value;
         const password = event.target.elements[1].value;
-        
 
-        //pegar os parametros de email/senha
-        const bodyJson={
-          "email": email,
-          "password": password,
-        }
-        //chmar a api
-        return fetch('https://code-burguer-api.vercel.app/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(bodyJson)
-        })
-          .then((response) => response.json())
+        //chamar a api
+         login(email,password)
+       
           .then((data) => {
             // Faça algo com a resposta da API
             // Para salvar o token:
             if(data && data.accessToken){
               //se com sucesso: guardar o token
-              localStorage.setItem('accessToken', data.accessToken);
+              setItem('accessToken', data.accessToken);
               navigate('Pedidos');
             }
-            
           })
           .catch((error) => {
             setError(error.message)
           });
-        // se com falha: retornar erro
+        //se com falha: retornar erro
     }
 
     return (
