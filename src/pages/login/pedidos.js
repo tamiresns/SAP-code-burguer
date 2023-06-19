@@ -3,7 +3,7 @@ import Logo from '../../img/burger.png'
 import { Link } from 'react-router-dom';
 import IconeMais from '../../img/icon-mais.png';
 import IconeOlho from '../../img/icon-olho.png';
-import './Pedido.css';
+import './pedidos.css';
 
  const Pedidos = () => {
     return (

@@ -1,7 +1,7 @@
 import React from 'react';
-import './Cadastrar-pedido.css';
-import ButtonMenuBreakfast from '../components/ButtonMenu.js';
-import ButtonMenuDia from '../components/ButtonMenu.js';
+import './cadastrar-pedido.css';
+import ButtonMenuBreakfast from '../components/buttonMenu.js';
+import ButtonMenuDia from '../components/buttonMenu.js';
 
 
 

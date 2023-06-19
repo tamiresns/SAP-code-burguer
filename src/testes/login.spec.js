@@ -1,9 +1,10 @@
 import React from 'react';
 import { render, fireEvent, screen, waitFor } from '@testing-library/react';
-import Login from '../pages/login/Login.js';
+import Login from '../pages/login/login.js';
 import { setItem } from '../storage/local.js';
 import { login } from '../api/auth.js';
 import { useNavigate } from 'react-router-dom';
+import { act } from 'react-dom/test-utils';
 
 jest.mock('react-router-dom');
 jest.mock('../storage/local.js');
@@ -56,11 +57,27 @@ describe('Login, component', () => {
       expect(mockNavigate).toHaveBeenCalledWith('Pedidos');
   });
    
-  // it('Deve mostrar a mensagem de erro quando se falhar ao acessar o token', () => {
-  //   const 
-  //   login.mockRejectValue(error.message);
+  it('Deve mostrar a mensagem de erro se falhar ao acessar o token', ()  => {
+    const mockData = "Cannot find user";
+    login.mockRejectedValue(mockData);
+    login.mockResolvedValue({accessToken: 'token_de_acesso'});
 
-
-  // })
+    render(<Login />);
+  
+    fireEvent.change(screen.getByPlaceholderText('Seu e-mail'), {
+      target: { value: 'test@example.com' },
+    });
+    fireEvent.change(screen.getByPlaceholderText('Sua senha'), {
+      target: { value: 'password123' },
+    });
+    act(() => {
+    fireEvent.click(screen.getByRole('button', { name: /Login/i }));
+    })
+    //espera-se que a função setItem não seja chamada e receba a messagem de erro
+    expect(setItem).not.toHaveBeenCalledWith(mockData);
+    //espera-se que a função login, que possui a chamada da API, não seja chamada e receba a messagem de erro
+    expect(login).not.toHaveBeenCalledWith(mockData);
+  });
+  
 })
 

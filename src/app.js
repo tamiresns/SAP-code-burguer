@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from './pages/login/Login.js';
-import Pedidos from './pages/login/Pedido';
-import CadastrarPedido from './pages/Cadastrar-pedido';
-import VerPedido from './pages/Ver-pedido';
-import './App.css';
+import Login from './pages/login/login.js';
+import Pedidos from './pages/login/pedidos.js';
+import CadastrarPedido from './pages/cadastrar-pedido.js';
+import VerPedido from './pages/ver-pedido.js';
+import './app.css';
 
 
 const App = () => {

@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
-import Input from '../../components/Input';
-import ButtonMain from '../../components/ButtonMain';
-import ImgLogo from '../../components/ImgLogo';
+import Input from '../../components/input';
+import ButtonMain from '../../components/buttonMain';
+import ImgLogo from '../../components/imgLogo';
 import { useNavigate } from 'react-router-dom';
 import { setItem } from '../../storage/local.js';
 import { login } from '../../api/auth.js';
-import './Login.css';
+import './login.css';
 
 const Login = () => {
 
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    //função chamada ao submter o formulário
+    //função chamada ao submeter o formulário
     const formLoginSubmit = (event) => {
-      
         //interrompe  resto da ação "submit" que iria recarregar a página
         //ação necessaria pois o login será feito por chamada de API
         event.preventDefault();
@@ -22,9 +21,7 @@ const Login = () => {
         const email = event.target.elements[0].value;
         const password = event.target.elements[1].value;
 
-        //chamar a api
-         login(email,password)
-       
+          login(email,password)
           .then((data) => {
             // Faça algo com a resposta da API
             // Para salvar o token:
@@ -33,11 +30,14 @@ const Login = () => {
               setItem('accessToken', data.accessToken);
               navigate('Pedidos');
             }
+            else{
+              setError(data);
+            }
           })
           .catch((error) => {
             setError(error.message)
+            //se retornar a URL errada retorna erro
           });
-        //se com falha: retornar erro
     }
 
     return (
