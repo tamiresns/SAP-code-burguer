@@ -44,7 +44,7 @@ const Login = () => {
         <div className='login-container'>
           <div className='grid-container'>
             <h1 className="title">codeBurger</h1>
-            <ImgLogo />
+            <ImgLogo className="my-logo" />
 
             <form onSubmit={formLoginSubmit}>
               <h2>Login</h2>
