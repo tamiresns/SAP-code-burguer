@@ -1,6 +1,6 @@
 import React from 'react';
 import minhaImagem from '../img/icon-back.png';
-import ImgLogo from './ImgLogo';
+import ImgLogo from './imgLogo';
 import Title from '../titleHeader.js';
 
 const Header = ({ onClick }) => {
