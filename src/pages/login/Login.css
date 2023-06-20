@@ -2,6 +2,9 @@
     background-color: #544D4D;
     color: white;
 }
+.my-logo{
+    width: 160px;
+}
 
 div > h1 > .title{
     color: white;
