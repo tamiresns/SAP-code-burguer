@@ -28,7 +28,7 @@ const Login = () => {
             if(data && data.accessToken){
               //se com sucesso: guardar o token
               setItem('accessToken', data.accessToken);
-              navigate('Pedidos');
+              navigate('pedidos');
             }
             else{
               setError(data);

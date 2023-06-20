@@ -24,7 +24,7 @@ const Resumo = () => {
             </div>
             <div className="button-voltar">
                 <button>
-                <Link to="/Cadastrar-pedido" className="btn-voltar">Voltar</Link>
+                <Link to="/cadastrar-pedido" className="btn-voltar">Voltar</Link>
                 </button>
             </div>
             <div className="button-enviar">

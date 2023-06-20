@@ -12,25 +12,17 @@
     margin-top: 180px;
     font-family: verdana;
 }
-/* .button-menu {
-    background-color:#544D4D;
-    width: 200px;
-    height: 40px;
-    border: 2px solid white;
-   
-    
-} */
 .button-breakfast-day {
     background-color: #544D4D;
     width: 200px;
     height: 40px;
     color: white;
+    font-size: 15px;
     border: 2px solid white;
-    margin: 0 15px;
-    border-radius: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 .button-breakfast-day:hover {
     background-color: black;
     transition: 1s;
-
 }

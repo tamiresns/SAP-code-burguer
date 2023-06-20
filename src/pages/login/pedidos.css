@@ -21,7 +21,7 @@
     width: 250px;
     height: 250px;
 }
-button {
+.btn-pedidos {
     background-color: white;
     width: 120px;
     height: 120px;
@@ -38,7 +38,6 @@ button img{
     flex-direction: row;
     gap: 50px;
 }
-
 .btn-pedido {
     background-color: white;
     text-decoration: none;
@@ -50,7 +49,6 @@ button img{
 .icone-mais {
     padding: 15px;
 }
-
 .icone-olho {
     padding: 15px;
 }
