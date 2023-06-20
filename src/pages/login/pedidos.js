@@ -11,11 +11,11 @@ import './pedidos.css';
           <h1 className="title">codeBurger</h1>
           <img src={Logo} alt="Logo code burger" className="logo-burger"/>
           <div className="button-pedidos">
-            <button>
+            <button className="btn-pedidos">
               <Link to="/Cadastrar-pedido" className="btn-pedido">Novo Pedido</Link>
               <img src={IconeMais} alt="Icone Mais" className="icone-mais"/>
             </button>
-            <button>
+            <button className="btn-pedidos">
               <Link to="/Ver-pedido" className="btn-pedido">Ver Pedido</Link>
               <img src={IconeOlho} alt="Icone Olho" className="icone-olho"/>
             </button>
