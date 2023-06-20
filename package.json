@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -40,6 +40,8 @@
     "@testing-library/react": "^14.0.0",
     "axios-mock-adapter": "^1.21.4",
     "jest": "^27.5.1",
+    "jest-fetch-mock": "^3.0.3",
+    "jest-localstorage-mock": "^2.4.26",
     "react-test-renderer": "^18.2.0"
   }
 }
