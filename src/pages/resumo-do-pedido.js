@@ -1,7 +1,7 @@
 import React from 'react';
 import ImgLogo from '../../components/imgLogo.js';
 import { Link } from 'react-router-dom';
-import './resumo-do-pedido.css';
+import '../resumo-do-pedido.css';
 
 
 const Resumo = () => {
