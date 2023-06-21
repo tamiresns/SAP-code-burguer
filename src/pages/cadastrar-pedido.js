@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import './cadastrar-pedido.css';
 import ButtonMenuBreakfast from '../components/buttonMenu.js';
 import ButtonMenuDia from '../components/buttonMenu.js';
+import Header from '../components/header.js';
+import Title from '../components/titleHeader';
+
 
 const CadastrarPedido = () => {
   const [botaoClicado, setBotaoClicado] = useState(null);
@@ -16,6 +19,9 @@ const CadastrarPedido = () => {
     }
   }
     return (
+      <section>
+          <Header/>
+          <Title text="Cadastrar Pedido"/>
         <div className="menu-container">
           <h1 className="title-menu">Menu</h1>
           <div className="button-menu">
@@ -30,6 +36,8 @@ const CadastrarPedido = () => {
             </ul>
           </div>
         </div>
+        </section>
+
     )
 
 }
