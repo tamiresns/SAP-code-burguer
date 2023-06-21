@@ -28,7 +28,7 @@ const Login = () => {
             if(data && data.accessToken){
               //se com sucesso: guardar o token
               setItem('accessToken', data.accessToken);
-              navigate('Pedidos');
+              navigate('pedidos');
             }
             else{
               setError(data);
@@ -44,7 +44,7 @@ const Login = () => {
         <div className='login-container'>
           <div className='grid-container'>
             <h1 className="title">codeBurger</h1>
-            <ImgLogo />
+            <ImgLogo className="my-logo" />
 
             <form onSubmit={formLoginSubmit}>
               <h2>Login</h2>

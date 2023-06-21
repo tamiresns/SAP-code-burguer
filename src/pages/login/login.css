@@ -2,6 +2,9 @@
     background-color: #544D4D;
     color: white;
 }
+.my-logo{
+    width: 160px;
+}
 
 div > h1 > .title{
     color: white;
@@ -31,10 +34,13 @@ Input::placeholder {
   }
 
 .button-main{
+    background-color: white;
     color: black;
+    font-weight: bold;
     font-size: 20px;
     min-width: 304px;
     height: 43px;
     border-radius: 5px;
-    margin: 20px 0px;
+    border: none;
+    cursor: pointer;
 }
