@@ -13,17 +13,32 @@ const CadastrarPedido = () => {
     setBotaoClicado(botao);
     if(botaoClicado === 'Café da Manhã') {
       setProdutosRelacionados([
-        { nome: 'Pão de Queijo', preco: 2.5 },
-        { nome: 'Café Preto', preco: 1.5 },
-        { nome: 'Croissant', preco: 3.0 },
+        { nome: 'Pão de queijo', preco: 2.5 },
+        { nome: 'Misto quente', preco: 10 },
+        { nome: 'Croissant', preco: 5 },
+        { nome: 'X-egg', preco: 15 },
+        { nome: 'X-dog', preco: 15 },
+        { nome: 'Água 500ml', preco: 5 },
+        { nome: 'Sucos polpa', preco: 8 },
+        { nome: 'Suco de laranja', preco: 12 },
+        { nome: 'Refrigerante 500ml', preco: 10 },
+        { nome: 'Milk shake firebase', preco: 15 },
+        
       ]);
     } else if(botaoClicado === 'Menu do Dia') {
       setProdutosRelacionados([
-        { nome: 'Prato Principal', preco: 10 },
-        { nome: 'Acompanhamento', preco: 8.0 },
-        { nome: 'Sobremesa', preco: 5.0 },
+        { nome: 'X-code tudo', preco: 30 },
+        { nome: 'X-javascript', preco: 35 },
+        { nome: 'X-html', preco: 25 },
+        { nome: 'X-css', preco: 25 },
+        { nome: 'Sobremesa react', preco: 20 },
+        { nome: 'Água 500ml', preco: 5 },
+        { nome: 'Sucos polpa', preco: 8 },
+        { nome: 'Suco de laranja', preco: 12 },
+        { nome: 'Refrigerante 500ml', preco: 10 },
+        { nome: 'Milk shake firebase', preco: 15 },
       ]);
-    }
+      }
   }
     return (
       <section>
