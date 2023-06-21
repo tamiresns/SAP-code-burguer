@@ -1,6 +1,6 @@
 export function login(email,password){
   //chamando a API
-    return fetch('https://code-burguer-api.vercel.app/login', {
+    return fetch('http://localhost:8080/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

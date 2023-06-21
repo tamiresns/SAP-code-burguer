@@ -1,7 +1,7 @@
 import React from 'react';
 import minhaImagem from '../img/icon-back.png';
 import ImgLogo from './imgLogo';
-import Title from '../titleHeader.js';
+
 
 const Header = ({ onClick }) => {
     return (
@@ -11,7 +11,6 @@ const Header = ({ onClick }) => {
                 <ImgLogo className="logo-pequena item-center"/>
                 <div className="spacer"></div>
             </div>
-            <Title text="Cadastrar Pedido"/>
         </section>
     );
   };
