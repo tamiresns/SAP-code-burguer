@@ -11,7 +11,6 @@ const Login = () => {
 
     const [error, setError] = useState('');
     const navigate = useNavigate();
-
     //função chamada ao submeter o formulário
     const formLoginSubmit = (event) => {
         //interrompe  resto da ação "submit" que iria recarregar a página
@@ -39,13 +38,11 @@ const Login = () => {
             //se retornar a URL errada retorna erro
           });
     }
-
     return (
         <div className='login-container'>
           <div className='grid-container'>
             <h1 className="title">codeBurger</h1>
             <ImgLogo className="my-logo" />
-
             <form onSubmit={formLoginSubmit}>
               <h2>Login</h2>
               <Input
@@ -54,20 +51,16 @@ const Login = () => {
                 required
                 name='email'
               />
-      
               <Input
                 type='password'
                 placeholder='Sua senha'
                 required
                 name='password'
               />
-
               <div>
                 {error && <p>{error}</p>}
               </div>
-
               <ButtonMain label="Login"/>
-
             </form>
           </div>   
         </div>
