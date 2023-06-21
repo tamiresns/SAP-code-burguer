@@ -1,7 +1,44 @@
 .title-resumo {
-    color: red;
+    color: white;
     font-size: 50px;
+    text-align: center;
 }
 .box-resumo {
-    
+    position: absolute;
+    width: 300px; 
+    height: 350px;
+    left: 118px;
+    top: 177px;
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.btn-voltar {
+     position: absolute;
+     width: 330px;
+     height: 60px;
+     left: 194px;
+     top: 709px;
+     background: #000000;
+     border-radius: 5px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.btn-enviar {
+     position: absolute;
+     width: 330px;
+     height: 60px;
+     left: 194px;
+     top: 790px;
+     background: #FF7D7D;
+     border-radius: 5px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+  }
