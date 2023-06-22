@@ -1,11 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const DropdownMenu = ({ label, onClick }) => {
+function Dropdown({ options }) {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
+
+
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+    setMenuOpen(false);
+  };
+
   return (
-    <button type="submit" onClick = {onClick} className="button-breakfast-day">
-      {label} 
-    </button>
-  );
-};
+    <section className='container-dropdown display-flex-column'>
+      <button className='btn-dropdown color-white-and-border' onClick={toggleMenu}>Número da Mesa</button>
+      {isMenuOpen && (
+        <ul className='list-dropdown display-flex-column color-white-and-border'>
+          {options.map((option) => (
+            <li key={option.id} onClick={() => handleOptionClick(option)}>
+              {option.label}
+            </li>
+        ))}        
+        </ul>
+      )}
 
-export default (DropdownMenu);
+      {selectedOption && (
+        <div className='select-table'>
+          <p>Opção selecionada: {selectedOption.label}</p>
+        </div>
+      )}
+
+    </section>
+  );
+}
+export default Dropdown;
