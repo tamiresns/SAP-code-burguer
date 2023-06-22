@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Input from '../../components/input';
 import ButtonMain from '../../components/buttonMain';
-import ImgLogo from '../../components/imgLogo';
+import ImgLogo from '../../components/imgLogo.js';
 import { useNavigate } from 'react-router-dom';
 import { setItem } from '../../storage/local.js';
 import { login } from '../../api/auth.js';
