@@ -3,7 +3,12 @@ import Header from '../components/header.js';
 import { Link } from 'react-router-dom';
 import './resumo-do-pedido.css';
 import Title from '../components/title-header.js';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+const enviarPedido = () => {
+    toast.success('Pedido enviado com sucesso!');
+}
 
 const Resumo = () => {
     return (
@@ -28,10 +33,14 @@ const Resumo = () => {
         <Link to="/cadastrar-pedido">Voltar</Link>
     </button>
 </div>
- <button type="submit" className="btn-enviar" label="Enviar Pedido">
+ <button type="submit" className="btn-enviar" onClick={enviarPedido} label="Enviar Pedido">
     Enviar Pedido
 </button>
+<ToastContainer
+ autoClose={3000}/>
 </div>
+
+
  )
 };  
           
