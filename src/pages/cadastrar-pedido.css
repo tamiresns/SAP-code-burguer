@@ -34,11 +34,10 @@
     font-weight: bold;
     text-align: center;
     margin-top: 100px;
-    
 }
 .button-breakfast-day {
     background-color: #544D4D;
-    width: 170px;
+    width: 180px;
     height: 40px;
     color: white;
     font-family: verdana;
@@ -52,9 +51,8 @@
     transition: 1s;
 }
 
-
 .produtos-relacionados {
-    font-size: 18px;
+    font-size: 20px;
     font-family: verdana;
     color: white;
 }
@@ -99,5 +97,21 @@
     display: flex;
     gap: 15px;
     margin-left: 30px;
+}
+.btn-quantidade > button {
+    font-size: 25px;
+}
+.btn-add-pedido {
+    width: 300px;
+    height: 50px;
+    background-color: #FF7D7D;
+    color: white;
+    font-size: 25px;
+    font-family: verdana;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
 }
 

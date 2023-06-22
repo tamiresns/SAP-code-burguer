@@ -56,7 +56,7 @@ describe('Login, component', () => {
       //verifica se a função login foi chamada corretamente
       expect(login).toHaveBeenCalledWith('test@example.com', 'password123');
       //verifica se navegou para a página Pedidos
-      expect(mockNavigate).toHaveBeenCalledWith('Pedidos');
+      expect(mockNavigate).toHaveBeenCalledWith('pedidos');
   });
    
   it('Deve mostrar a mensagem de erro se falhar ao acessar o token', async ()  => {

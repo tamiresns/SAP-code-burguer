@@ -1,15 +1,13 @@
-*{
+.login-container{
     background-color: #544D4D;
     color: white;
 }
 .my-logo{
-    width: 160px;
+    width: 250px;
 }
-
 div > h1 > .title{
     color: white;
 }
-
 .grid-container{
     position: fixed;
     width: 100%;
@@ -19,7 +17,6 @@ div > h1 > .title{
     justify-content: center;
     align-items: center;
 }  
-
 Input{
     min-width: 300px;
     font-size: 16px;
@@ -28,11 +25,9 @@ Input{
     border: solid white 1px;
     border-radius: 5px;
 }
-
 Input::placeholder {
     font-style: italic;
-  }
-
+}
 .button-main{
     background-color: white;
     color: black;
