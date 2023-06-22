@@ -115,3 +115,48 @@
     text-decoration: none;
 }
 
+/* dropdown */
+
+.container-dropdown{
+    margin: 10px;
+}
+
+.color-white-and-border{
+    background-color: white;
+    border: #544D4D solid 1px;
+    border-radius: 10px;
+
+}
+
+.btn-dropdown{
+    padding: 10px;
+    font-size: 17px;
+}
+
+.list-dropdown{
+    list-style: none;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}
+
+.list-dropdown > li{
+    padding: 5px;
+    cursor: pointer;
+}
+
+.container-dropdown{
+    color: black;
+
+}
+
+.display-flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.select-table{
+    color: white;
+    text-align: center;
+}
+
