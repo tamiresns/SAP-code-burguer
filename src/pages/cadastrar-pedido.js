@@ -81,7 +81,7 @@ const CadastrarPedido = () => {
                         <span className="produto-preco">Preço: R$ {produto.preco.toFixed(2)}</span>
                       </div>
                       <div className="btn-quantidade">
-                        <button  onClick={() => handleDecrement(i)}>-</button>
+                        <button onClick={() => handleDecrement(i)}>-</button>
                         <span>{produto.quantidade}</span>
                         <button onClick={() => handleIncrement(i)}>+</button>
                       </div>
