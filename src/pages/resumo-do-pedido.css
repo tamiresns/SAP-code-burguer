@@ -1,10 +1,11 @@
 .title-resumo {
-    color: white;
-    font-size: 50px;
+    color: red;
+    font-size: 40px;
+    font-family: verdana;
+    font-weight: bold;
     text-align: center;
 }
 .box-resumo {
-    color: #000000;
     width: 300px;
     height: 350px;
     background: #FFFFFF;
@@ -12,14 +13,46 @@
     border-radius: 5px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     text-align: center;
     margin: auto;
     flex-direction: column
 }
+.box-resumo > p {
+    color: black;
+    text-align: left;
+    align-items: left;
+    margin-left: 20px;
+    font-family: verdana;
+    font-size: 18px;
+}
+.box-resumo > h1 {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: verdana;
+    text-align: left;
+    margin-left: 18px;
+}
+.box-resumo > h2 {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: verdana;
+    text-align: left;
+    margin-left: 18px;
+}
+.box-resumo > h3 {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: verdana;
+    text-align: left;
+    margin-left: 18px;
+}
 .btn-voltar > .button-voltar {
     position: relative; /* ou absolute, dependendo do contexto */
-    width: 330px;
+    width: 300px;
     height: 60px;
     margin: 0 auto; /* Centraliza horizontalmente */
     background: #000000;
@@ -31,19 +64,24 @@
     justify-content: center;
     text-align: center;
     text-decoration: none;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .btn-voltar > .button-voltar > .link-voltar {
     text-decoration: none;
     color: white;
     font-family: verdana;
     font-size: 20px;
+    font-weight: bold;
 }
 .btn-enviar {
     position: relative;
-    width: 330px;
+    width: 300px;
     height: 60px;
     margin: 0 auto; /* Centraliza horizontalmente */
     background: #FF7D7D;
+    color: black;
+    font-weight: bold;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
