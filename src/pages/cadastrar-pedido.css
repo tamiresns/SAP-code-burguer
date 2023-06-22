@@ -18,6 +18,8 @@
 .titulo{
     text-align: center;
     font-weight: normal;
+    font-family: verdana;
+    font-weight: bold;
 }
 
 .menu-container {

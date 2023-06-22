@@ -5,6 +5,7 @@ import ButtonMenuDia from '../components/buttonMenu.js';
 import Header from '../components/header.js';
 import Title from '../components/title-header.js';
 import './cadastrar-pedido.css';
+import DropdownMenu from '../components/dropdownMesas.js';
 
 const CadastrarPedido = () => {
   const [botaoClicado, setBotaoClicado] = useState(null);
@@ -62,6 +63,7 @@ const CadastrarPedido = () => {
       <section>
         <Header />
         <Title text="Cadastrar Pedido" />
+        <DropdownMenu />
         <div className="menu-container">
           <h1 className="title-menu">Menu</h1>
           <div className="button-menu">

@@ -16,15 +16,12 @@ const Resumo = () => {
             <Header />
             <Title text="Resumo do pedido" className="title-resumo"/>
             <div className="box-resumo">
-                <p>Mesa 1</p>
-                <p>Nome do cliente: Joleuson Silva</p>
-                <p>Itens:</p>
-                <ul>
-                    <p>1 Hambúrguer simples</p>
-                    <p>1 Hambúrguer duplo</p>
-                    <p>1 Água 500ml</p>
-                </ul>
-                <p>Total da Compra: R$67,00</p>
+                <h1>Mesa 1</h1>
+                <h2>Itens:</h2>
+                <p>1 Hambúrguer simples</p>
+                <p>1 Hambúrguer duplo</p>
+                <p>1 Água 500ml</p>
+                <h3>Total da Compra: R$67,00</h3>
             </div>
             <div className="btn-voltar">
                 <button className="button-voltar">
