@@ -58,7 +58,6 @@ const CadastrarPedido = () => {
       return updatedProdutos;
     });
   };
-
     return (
       <section>
         <Header />
