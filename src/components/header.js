@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import minhaImagem from '../img/icon-back.png';
 import ImgLogo from './imgLogo';
 
-
 const Header = ({ onClick }) => {
     return (
         <section className='section-header'>

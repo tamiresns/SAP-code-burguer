@@ -32,7 +32,6 @@
 button img{
     background-color: white;
 }
-
 .button-pedidos {
     display: flex;
     flex-direction: row;
@@ -45,7 +44,6 @@ button img{
     font-family: verdana;
     font-size: 18px;
 }
-
 .icone-mais {
     padding: 15px;
 }

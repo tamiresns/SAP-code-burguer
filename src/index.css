@@ -6,6 +6,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #544D4D;
+  color: white;
+}
+
+
+.login-container{
+  background-color: #544D4D;
+  color: white;
 }
 
 code {
