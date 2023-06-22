@@ -28,9 +28,9 @@ const Resumo = () => {
            <p>Total da Compra: R$67,00</p>
            </div>
             </div>
-            <div className="button-voltar btn-voltar">
-    <button>
-        <Link to="/cadastrar-pedido">Voltar</Link>
+            <div className=" btn-voltar">
+    <button className = "button-voltar">
+        <Link to="/cadastrar-pedido" className="link-voltar">Voltar</Link>
     </button>
 </div>
  <button type="submit" className="btn-enviar" onClick={enviarPedido} label="Enviar Pedido">

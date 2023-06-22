@@ -18,7 +18,7 @@
         flex-direction: column
     }
 
- .btn-voltar {
+ .btn-voltar > .button-voltar {
         position: relative; /* ou absolute, dependendo do contexto */
         width: 330px;
         height: 60px;
@@ -30,6 +30,12 @@
          align-items: center;
         justify-content: center;
         text-align: center;  
+        text-decoration: none;
+ }
+ .btn-voltar > .button-voltar > .link-voltar {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
  }
       
 .btn-enviar {
@@ -44,5 +50,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    font-size: 20px;
+    cursor: pointer;
   }
   
