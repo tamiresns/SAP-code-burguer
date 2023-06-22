@@ -21,14 +21,18 @@ Object {
         <div
           class="button-pedidos"
         >
-          <button>
+          <button
+            class="btn-pedidos"
+          >
             <img
               alt="Icone Mais"
               class="icone-mais"
               src="icon-mais.png"
             />
           </button>
-          <button>
+          <button
+            class="btn-pedidos"
+          >
             <img
               alt="Icone Olho"
               class="icone-olho"
@@ -56,14 +60,18 @@ Object {
       <div
         class="button-pedidos"
       >
-        <button>
+        <button
+          class="btn-pedidos"
+        >
           <img
             alt="Icone Mais"
             class="icone-mais"
             src="icon-mais.png"
           />
         </button>
-        <button>
+        <button
+          class="btn-pedidos"
+        >
           <img
             alt="Icone Olho"
             class="icone-olho"
