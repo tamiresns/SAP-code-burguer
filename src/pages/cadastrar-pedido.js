@@ -5,11 +5,21 @@ import ButtonMenuDia from '../components/buttonMenu.js';
 import Header from '../components/header.js';
 import Title from '../components/title-header.js';
 import './cadastrar-pedido.css';
-import DropdownMenu from '../components/dropdownMesas.js';
+import Dropdown from '../components/dropdownMesas.js';
 
 const CadastrarPedido = () => {
+  const options = [
+    { id: 1, label: 'Mesa 1' },
+    { id: 2, label: 'Mesa 2' },
+    { id: 3, label: 'Mesa 3' },
+    { id: 4, label: 'Mesa 4' },
+    { id: 5, label: 'Mesa 5' },
+    { id: 6, label: 'Mesa 6' },
+
+  ];
   const [botaoClicado, setBotaoClicado] = useState(null);
   const [produtosRelacionados, setProdutosRelacionados] = useState([]);
+  const [produtosSelecionados, setProdutosSelecionados] = useState([]);
 
   const handleClick = (botao) => {
     setBotaoClicado(botao);
@@ -42,7 +52,7 @@ const CadastrarPedido = () => {
       ]);
       }
   }
-  const handleDecrement = (index) => {
+  const handleDecrement = (index, produto) => {
     setProdutosRelacionados((prevProdutos) => {
       const updatedProdutos = [...prevProdutos];
       if (updatedProdutos[index].quantidade > 0) {
@@ -50,20 +60,43 @@ const CadastrarPedido = () => {
       }
       return updatedProdutos;
     });
-  };
+    // setProdutosSelecionados((prevProdutos) => {
+    //   if(produto.quantidade < 1) {
+    //     return[]
+    //   }
 
-  const handleIncrement = (index) => {
+    // })
+   
+  };
+  const handleIncrement = (index, produto) => {
     setProdutosRelacionados((prevProdutos) => {
       const updatedProdutos = [...prevProdutos];
       updatedProdutos[index].quantidade++;
       return updatedProdutos;
     });
+    setProdutosSelecionados((prevProdutos) => {
+      const produtoJaFoiSelecionado = prevProdutos.some((item) => {
+        return item.nome === produto.nome
+      })
+      if(produtoJaFoiSelecionado) {
+        return [...prevProdutos];
+      } else {
+        return [...prevProdutos, produto]
+      }
+      
+    });
+    console.log(produtosSelecionados)
   };
+  const handlePrint = () => {
+    
+
+
+  }
     return (
       <section>
         <Header />
         <Title text="Cadastrar Pedido" />
-        <DropdownMenu />
+        <Dropdown options={options}/>
         <div className="menu-container">
           <h1 className="title-menu">Menu</h1>
           <div className="button-menu">
@@ -81,9 +114,9 @@ const CadastrarPedido = () => {
                         <span className="produto-preco">Preço: R$ {produto.preco.toFixed(2)}</span>
                       </div>
                       <div className="btn-quantidade">
-                        <button onClick={() => handleDecrement(i)}>-</button>
+                        <button onClick={() => handleDecrement(i, produto)}>-</button>
                         <span>{produto.quantidade}</span>
-                        <button onClick={() => handleIncrement(i)}>+</button>
+                        <button onClick={() => handleIncrement(i, produto)}>+</button>
                       </div>
                     </div>
                   </li>
@@ -91,12 +124,12 @@ const CadastrarPedido = () => {
               </ul>
             )}
           </div>
-          <button className="btn-add-pedido">
+          <button className="btn-add-pedido" onClick ={() => handlePrint}>
             <Link to="/resumo-do-pedido" className="btn-add-pedido">Adicionar Pedido</Link>
           </button>
         </div>
       </section>
-    )
+    ) 
 }
 
 export default CadastrarPedido
