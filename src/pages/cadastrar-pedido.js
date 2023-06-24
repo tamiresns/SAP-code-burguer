@@ -5,8 +5,18 @@ import ButtonMenuDia from '../components/buttonMenu.js';
 import Header from '../components/header.js';
 import Title from '../components/title-header.js';
 import './cadastrar-pedido.css';
+import Dropdown from '../components/dropdownMesas.js';
 
 const CadastrarPedido = () => {
+  const options = [
+    { id: 1, label: 'Mesa 1' },
+    { id: 2, label: 'Mesa 2' },
+    { id: 3, label: 'Mesa 3' },
+    { id: 4, label: 'Mesa 4' },
+    { id: 5, label: 'Mesa 5' },
+    { id: 6, label: 'Mesa 6' },
+
+  ];
   const [botaoClicado, setBotaoClicado] = useState(null);
   const [produtosRelacionados, setProdutosRelacionados] = useState([]);
 
@@ -58,11 +68,11 @@ const CadastrarPedido = () => {
       return updatedProdutos;
     });
   };
-
     return (
       <section>
         <Header />
         <Title text="Cadastrar Pedido" />
+        <Dropdown options={options}/>
         <div className="menu-container">
           <h1 className="title-menu">Menu</h1>
           <div className="button-menu">
