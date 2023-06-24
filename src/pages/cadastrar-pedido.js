@@ -60,12 +60,12 @@ const CadastrarPedido = () => {
       }
       return updatedProdutos;
     });
-    // setProdutosSelecionados((prevProdutos) => {
-    //   if(produto.quantidade < 1) {
-    //     return[]
-    //   }
+    setProdutosSelecionados((prevProdutos) => {
+      if(produto.quantidade < 1) {
+        return[...prevProdutos]
+      }
 
-    // })
+    })
    
   };
   const handleIncrement = (index, produto) => {
