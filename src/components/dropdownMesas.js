@@ -17,7 +17,10 @@ function Dropdown({ options, handleChange }) {
 
   return (
     <section className='container-dropdown display-flex-column'>
-      <button className='btn-dropdown color-white-and-border' onClick={toggleMenu}>Número da Mesa</button>
+      <button className={`btn-dropdown color-white-and-border ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+        Número da Mesa
+        <span className={`arrow ${isMenuOpen ? 'open' : ''}`}>&#9660;</span>
+      </button>
       {isMenuOpen && (
         <ul className='list-dropdown display-flex-column color-white-and-border'>
           {options.map((option) => (
