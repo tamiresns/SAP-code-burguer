@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Dropdown({ options }) {
+function Dropdown({ options, handleChange }) {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -11,6 +11,7 @@ function Dropdown({ options }) {
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
+    handleChange(option);
     setMenuOpen(false);
   };
 
