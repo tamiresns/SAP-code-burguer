@@ -20,6 +20,7 @@
     font-weight: normal;
     font-family: verdana;
     font-weight: bold;
+    font-size: 30px;
 }
 
 .menu-container {
@@ -52,7 +53,6 @@
     background-color: black;
     transition: 1s;
 }
-
 .produtos-relacionados {
     font-size: 20px;
     font-family: verdana;
@@ -116,18 +116,15 @@
     cursor: pointer;
     text-decoration: none;
 }
-
 /* dropdown */
-
 .container-dropdown{
+    width: 400px;
     margin: 10px;
 }
-
 .color-white-and-border{
     background-color: white;
     border: #544D4D solid 1px;
     border-radius: 10px;
-
 }
 .arrow-icon{
     margin: 0px 0px 0px 10px;
@@ -141,29 +138,23 @@
     padding: 10px;
     font-size: 17px;
 }
-
 .list-dropdown{
     list-style: none;
     text-align: center;
     padding: 10px;
     margin-top: auto;
 }
-
 .list-dropdown > li{
     padding: 5px;
     cursor: pointer;
 }
-
 .container-dropdown{
     color: black;
-
 }
-
 .display-flex-column{
     display: flex;
     flex-direction: column;
 }
-
 .select-table{
     color: white;
     text-align: center;
