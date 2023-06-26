@@ -15,11 +15,12 @@ const CadastrarPedido = () => {
     { id: 4, label: 'Mesa 4' },
     { id: 5, label: 'Mesa 5' },
     { id: 6, label: 'Mesa 6' },
-
   ];
+
   const [botaoClicado, setBotaoClicado] = useState(null);
   const [produtosRelacionados, setProdutosRelacionados] = useState([]);
   const [produtosSelecionados, setProdutosSelecionados] = useState([]);
+  const [numeroMesa, setNumeroMesa] = useState('');
 
   const handleClick = (botao) => {
     setBotaoClicado(botao);
@@ -61,13 +62,22 @@ const CadastrarPedido = () => {
       return updatedProdutos;
     });
     setProdutosSelecionados((prevProdutos) => {
-      if(produto.quantidade < 1) {
-        return[...prevProdutos]
+      const produtoJaFoiSelecionado = prevProdutos.some((item) => item.nome === produto.nome);
+      if (produtoJaFoiSelecionado) {
+        const updatedProdutos = prevProdutos.map((item) => {
+          if (item.nome === produto.nome) {
+            return { ...item, quantidade: item.quantidade - 1 };
+          }
+          return item;
+        });
+        return updatedProdutos.filter((item) => item.quantidade > 0);
+      } else {
+        return prevProdutos;
       }
-
-    })
-   
+    });
+     console.log(produtosSelecionados);
   };
+
   const handleIncrement = (index, produto) => {
     setProdutosRelacionados((prevProdutos) => {
       const updatedProdutos = [...prevProdutos];
@@ -79,24 +89,43 @@ const CadastrarPedido = () => {
         return item.nome === produto.nome
       })
       if(produtoJaFoiSelecionado) {
-        return [...prevProdutos];
+        const updatedProdutos = prevProdutos.map((item) => {
+          if (item.nome === produto.nome) {
+            return { ...item, quantidade: item.quantidade + 1 };
+          }
+          return item;
+        });
+        return updatedProdutos;
       } else {
-        return [...prevProdutos, produto]
-      }
-      
+        return [...prevProdutos, { ...produto, quantidade: 1 }];
+        }
     });
     console.log(produtosSelecionados)
   };
+
+  const calcularValorTotal = () => {
+    let total = 0;
+    produtosSelecionados.forEach((produto) => {
+      total += produto.preco * produto.quantidade;
+    });
+    return total;
+  };
   const handlePrint = () => {
-    
-
-
+    const pedido = {
+      produtos: produtosSelecionados,
+      quantidade: produtosSelecionados.length,
+      numeroMesa: numeroMesa,
+      valorTotal: calcularValorTotal(),
+    };
+    console.log(pedido);
+    window.localStorage.setItem("pedido", JSON.stringify(pedido));
   }
+  
     return (
       <section>
         <Header />
         <Title text="Cadastrar Pedido" />
-        <Dropdown options={options}/>
+        <Dropdown options={options} handleChange={(option) => setNumeroMesa(option.id)} />
         <div className="menu-container">
           <h1 className="title-menu">Menu</h1>
           <div className="button-menu">
@@ -124,8 +153,13 @@ const CadastrarPedido = () => {
               </ul>
             )}
           </div>
-          <button className="btn-add-pedido" onClick ={() => handlePrint}>
-            <Link to="/resumo-do-pedido" className="btn-add-pedido">Adicionar Pedido</Link>
+          <button className="btn-add-pedido" onClick ={handlePrint}>
+            <Link to={{ 
+              pathname: "/resumo-do-pedido" 
+              }} 
+              className="btn-add-pedido">
+              Adicionar Pedido
+            </Link>
           </button>
         </div>
       </section>
