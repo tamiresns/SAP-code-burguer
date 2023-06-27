@@ -44,6 +44,7 @@
     height: 40px;
     color: white;
     font-family: verdana;
+    font-weight: bold;
     font-size: 18px;
     border: 2px solid white;
     border-radius: 3px;
@@ -130,9 +131,7 @@
 }
 .arrow-icon{
     margin: 0px 0px 0px 10px;
-
 }
-
 .btn-dropdown{
     display: flex;
     justify-content: center;
@@ -144,14 +143,13 @@
     font-size: 25px;
     color: white;
     cursor: pointer;
-    /* width: 100%; */
     width: 300px;
 }
 .list-dropdown{
     list-style: none;
     text-align: center;
     padding: 10px;
-    width: 300px;
+    width: 250px;
     font-family: verdana;
     font-weight: bold;
     font-size: 20px;
@@ -172,16 +170,11 @@
     font-weight: bold;
     font-size: 18px;
 }
-.arrow {
-    color: green;
-}
-
 .list-dropdown li:hover {
-    background-color: #E5E5E5;
-  }
-  
-  .list-dropdown li.selected {
+    background-color: black;
+}
+.list-dropdown li.selected {
     background-color: #2DBF63;
     color: white;
-  }
+}
   

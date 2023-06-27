@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ButtonMenuBreakfast from '../components/buttonMenu.js';
 import ButtonMenuDia from '../components/buttonMenu.js';
@@ -6,6 +6,7 @@ import Header from '../components/header.js';
 import Title from '../components/title-header.js';
 import './cadastrar-pedido.css';
 import Dropdown from '../components/dropdownMesas.js';
+import { getProducts } from '../api/products/getProducts.js';
 
 const CadastrarPedido = () => {
   const options = [
@@ -21,56 +22,50 @@ const CadastrarPedido = () => {
   const [produtosRelacionados, setProdutosRelacionados] = useState([]);
   const [produtosSelecionados, setProdutosSelecionados] = useState([]);
   const [numeroMesa, setNumeroMesa] = useState('');
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const dataProducts = async () => {
+      try {
+        const response = await getProducts();
+        console.log(response);
+        setProducts(response);
+      }
+      catch(error) {
+        console.log(error);
+      }
+    }
+    dataProducts();
+  },[])
 
   const handleClick = (botao) => {
     setBotaoClicado(botao);
     if(botaoClicado === 'Café da Manhã') {
-      setProdutosRelacionados([
-        { nome: 'Pão de queijo', preco: 2.5, quantidade: 0 },
-        { nome: 'Misto quente', preco: 10, quantidade: 0 },
-        { nome: 'Croissant', preco: 5, quantidade: 0 },
-        { nome: 'X-egg', preco: 15, quantidade: 0 },
-        { nome: 'X-dog', preco: 15, quantidade: 0 },
-        { nome: 'Água 500ml', preco: 5, quantidade: 0 },
-        { nome: 'Sucos polpa', preco: 8, quantidade: 0 },
-        { nome: 'Suco de laranja', preco: 12, quantidade: 0 },
-        { nome: 'Refrigerante 500ml', preco: 10, quantidade: 0 },
-        { nome: 'Milk shake firebase', preco: 15, quantidade: 0 },
-        
-      ]);
+      const cafeDaManha = products.filter((product) => product.type === 'Café da Manhã');
+      setProdutosRelacionados(cafeDaManha);
     } else if(botaoClicado === 'Menu do Dia') {
-      setProdutosRelacionados([
-        { nome: 'X-code tudo', preco: 30, quantidade: 0 },
-        { nome: 'X-javascript', preco: 35, quantidade: 0 },
-        { nome: 'X-html', preco: 25, quantidade: 0 },
-        { nome: 'X-css', preco: 25, quantidade: 0 },
-        { nome: 'Sobremesa react', preco: 20, quantidade: 0 },
-        { nome: 'Água 500ml', preco: 5, quantidade: 0 },
-        { nome: 'Sucos polpa', preco: 8, quantidade: 0 },
-        { nome: 'Suco de laranja', preco: 12, quantidade: 0 },
-        { nome: 'Refrigerante 500ml', preco: 10, quantidade: 0 },
-        { nome: 'Milk shake firebase', preco: 15, quantidade: 0 },
-      ]);
+      const menuDoDia = products.filter((product) => product.type === 'Menu do Dia');
+      setProdutosRelacionados(menuDoDia);
       }
   }
   const handleDecrement = (index, produto) => {
     setProdutosRelacionados((prevProdutos) => {
       const updatedProdutos = [...prevProdutos];
-      if (updatedProdutos[index].quantidade > 0) {
-        updatedProdutos[index].quantidade--;
+      if (updatedProdutos[index].quantity > 0) {
+        updatedProdutos[index].quantity--;
       }
       return updatedProdutos;
     });
     setProdutosSelecionados((prevProdutos) => {
-      const produtoJaFoiSelecionado = prevProdutos.some((item) => item.nome === produto.nome);
+      const produtoJaFoiSelecionado = prevProdutos.some((item) => item.name === produto.name);
       if (produtoJaFoiSelecionado) {
         const updatedProdutos = prevProdutos.map((item) => {
-          if (item.nome === produto.nome) {
-            return { ...item, quantidade: item.quantidade - 1 };
+          if (item.name === produto.name) {
+            return { ...item, quantity: item.quantity - 1 };
           }
           return item;
         });
-        return updatedProdutos.filter((item) => item.quantidade > 0);
+        return updatedProdutos.filter((item) => item.quantity > 0);
       } else {
         return prevProdutos;
       }
@@ -81,23 +76,23 @@ const CadastrarPedido = () => {
   const handleIncrement = (index, produto) => {
     setProdutosRelacionados((prevProdutos) => {
       const updatedProdutos = [...prevProdutos];
-      updatedProdutos[index].quantidade++;
+      updatedProdutos[index].quantity++;
       return updatedProdutos;
     });
     setProdutosSelecionados((prevProdutos) => {
       const produtoJaFoiSelecionado = prevProdutos.some((item) => {
-        return item.nome === produto.nome
+        return item.name === produto.name
       })
       if(produtoJaFoiSelecionado) {
         const updatedProdutos = prevProdutos.map((item) => {
-          if (item.nome === produto.nome) {
-            return { ...item, quantidade: item.quantidade + 1 };
+          if (item.name === produto.name) {
+            return { ...item, quantity: item.quantity + 1 };
           }
           return item;
         });
         return updatedProdutos;
       } else {
-        return [...prevProdutos, { ...produto, quantidade: 1 }];
+        return [...prevProdutos, { ...produto, quantity: 1 }];
         }
     });
     console.log(produtosSelecionados)
@@ -106,7 +101,7 @@ const CadastrarPedido = () => {
   const calcularValorTotal = () => {
     let total = 0;
     produtosSelecionados.forEach((produto) => {
-      total += produto.preco * produto.quantidade;
+      total += produto.price * produto.quantity;
     });
     return total;
   };
@@ -139,12 +134,12 @@ const CadastrarPedido = () => {
                   <li key={i}>
                     <div className="produto-container">
                       <div className="produto-info">
-                        <span className="produto-nome">{produto.nome}</span>
-                        <span className="produto-preco">Preço: R$ {produto.preco.toFixed(2)}</span>
+                        <span className="produto-nome">{produto.name}</span>
+                        <span className="produto-preco">Preço: R$ {produto.price.toFixed(2)}</span>
                       </div>
                       <div className="btn-quantidade">
                         <button onClick={() => handleDecrement(i, produto)}>-</button>
-                        <span>{produto.quantidade}</span>
+                        <span>{produto.quantity}</span>
                         <button onClick={() => handleIncrement(i, produto)}>+</button>
                       </div>
                     </div>
