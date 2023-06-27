@@ -128,6 +128,11 @@
     border: #544D4D solid 1px;
     border-radius: 5px;
 }
+.arrow-icon{
+    margin: 0px 0px 0px 10px;
+
+}
+
 .btn-dropdown{
     display: flex;
     justify-content: center;
@@ -171,3 +176,12 @@
     color: green;
 }
 
+.list-dropdown li:hover {
+    background-color: #E5E5E5;
+  }
+  
+  .list-dropdown li.selected {
+    background-color: #2DBF63;
+    color: white;
+  }
+  
