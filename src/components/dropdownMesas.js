@@ -10,7 +10,7 @@ function Dropdown({ options, handleChange }) {
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
-
+  
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     handleChange(option);
